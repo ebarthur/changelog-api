@@ -20,7 +20,7 @@ const defaultConfig = {
   stage,
   env: process.env.NODE_ENV,
   secrets: { jwt: process.env.JWT_SECRET, dbUrl: process.env.DATABASE_URL },
-  port: process.env.PORT,
+  port: 3000,
   logging: false,
 };
 

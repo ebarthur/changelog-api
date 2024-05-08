@@ -12,9 +12,9 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res, next) => {
+app.get("/", (req, res) => {
   setTimeout(() => {
-    next(new Error("hello"));
+    res.status(200).json({ message: "hello on server: pong" });
   }, 1);
 });
 
@@ -29,7 +29,7 @@ app.use((err, req, res, next) => {
   } else if (err.type === "input") {
     return res.status(400).json({ message: "Invalid input" });
   } else {
-    res.status(500).json({ message: "oops that's on us" });
+    res.status(500).json({ message: "Oops that's on us" });
   }
 });
 

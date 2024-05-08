@@ -1,4 +1,3 @@
-import { nextTick } from "process";
 import prisma from "../db";
 import { comparePasswords, createJWT, hashPassword } from "../modules/auth";
 

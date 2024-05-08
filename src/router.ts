@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { body, oneOf, validationResult } from "express-validator";
+import { body} from "express-validator";
 import {
   createProduct,
   deleteProduct,

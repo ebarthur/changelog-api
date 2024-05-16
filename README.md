@@ -1,6 +1,6 @@
 ## Overview
 
-The Changelog API aims to tracj software product changelog.
+The Changelog API aims to track software product changes over time.
 
 ### Backend Technology Stack
 

@@ -10,8 +10,7 @@ export const createNewUser = async (req, res, next) => {
       },
     });
 
-    const token = createJWT(user);
-    res.json({ token });
+    res.status(201).json({ message: "user created successfully" });
   } catch (e) {
     e.type === "input";
     next(e);
@@ -34,5 +33,12 @@ export const signin = async (req, res) => {
   }
 
   const token = createJWT(user);
-  res.json({ token });
+  // create cookie with token
+  res.cookie("Authorization", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    maxAge: 1000 * 3600 * 24 * 30,
+  });
+
+  res.status(200).json({ success: "logged in" });
 };

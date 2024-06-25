@@ -70,4 +70,3 @@ The server has a global error handler that handles different types of errors:
 ## Deployment
 
 This project is hosted on [Render](https://changelog-api-x2yq.onrender.com/).
-

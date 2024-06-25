@@ -57,7 +57,7 @@ The server uses several middleware:
 
 ## Authentication
 
-The server uses JSON Web Tokens (JWT) for authentication. The `protect` middleware checks the `Authorization` header of the request for a valid JWT. The `createNewUser` and `signin` functions create a JWT for the user.
+The server uses JSON Web Tokens (JWT) for authentication. The `protect` middleware checks the `Authorization` header of the request for a valid JWT. The `signin` function create a JWT for the user.
 
 ## Error Handling
 

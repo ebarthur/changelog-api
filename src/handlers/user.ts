@@ -1,5 +1,5 @@
-import prisma from "../db";
-import { comparePasswords, createJWT, hashPassword } from "../modules/auth";
+import prisma from '../db';
+import { comparePasswords, createJWT, hashPassword } from '../modules/auth';
 
 export const createNewUser = async (req, res, next) => {
   try {
@@ -10,9 +10,9 @@ export const createNewUser = async (req, res, next) => {
       },
     });
 
-    res.status(201).json({ message: "user created successfully" });
+    res.status(201).json({ message: 'user created successfully' });
   } catch (e) {
-    e.type === "input";
+    e.type === 'input';
     next(e);
   }
 };
@@ -28,17 +28,18 @@ export const signin = async (req, res) => {
 
   if (!isValid) {
     res.status(401);
-    res.json({ message: "Wrong username or password" });
+    res.json({ message: 'Wrong username or password' });
     return;
   }
 
   const token = createJWT(user);
   // create cookie with token
-  res.cookie("Authorization", token, {
+  res.cookie('Authorization', token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: process.env.NODE_ENV === 'production',
     maxAge: 1000 * 3600 * 24 * 30,
+    sameSite: 'lax',
   });
 
-  res.status(200).json({ success: "logged in" });
+  res.status(200).json({ success: 'logged in' });
 };

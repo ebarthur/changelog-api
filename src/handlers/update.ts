@@ -1,4 +1,4 @@
-import prisma from "../db";
+import prisma from '../db';
 
 // Get one
 export const getOneUpdate = async (req, res) => {
@@ -39,7 +39,7 @@ export const createUpdate = async (req, res) => {
 
   if (!product) {
     // does not belong to user
-    return res.json({ message: "nope" });
+    return res.json({ message: 'nope' });
   }
 
   const update = await prisma.update.create({
@@ -72,7 +72,7 @@ export const updateUpdate = async (req, res) => {
 
   if (!match) {
     // handle this
-    return res.json({ message: "nope" });
+    return res.json({ message: 'nope' });
   }
 
   const updatedUpdate = await prisma.update.update({
@@ -104,7 +104,7 @@ export const deleteUpdate = async (req, res) => {
 
   if (!match) {
     // handle this
-    return res.json({ message: "nope" });
+    return res.json({ message: 'nope' });
   }
 
   const deleted = await prisma.update.delete({

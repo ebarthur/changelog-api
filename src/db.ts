@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client';
 
 // TODO: Change DATABASE_URL to supabase. Render database expires soon
 

@@ -1,12 +1,14 @@
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 export const comparePasswords = (password, hash) => {
   return bcrypt.compare(password, hash);
 };
 
+const ROUNDS = process.env.SALT_ROUNDS || 5;
+
 export const hashPassword = (password) => {
-  return bcrypt.hash(password, 5);
+  return bcrypt.hash(password, ROUNDS);
 };
 
 export const createJWT = (user) => {
@@ -22,10 +24,10 @@ export const createJWT = (user) => {
 
 export const protect = (req, res, next) => {
   // get cookie from header
-  const token = req.headers.cookie.split("=")[1];
+  const [_, token] = req.headers.cookie.split('=');
   if (!token) {
     res.status(401);
-    res.json({ message: "not authorized" });
+    res.json({ message: 'not authorized' });
     return;
   }
 
@@ -36,7 +38,7 @@ export const protect = (req, res, next) => {
   } catch (e) {
     console.error(e);
     res.status(401);
-    res.json({ message: "not valid token" });
+    res.json({ message: 'not valid token' });
     return;
   }
 };

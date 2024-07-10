@@ -5,7 +5,7 @@ export const comparePasswords = (password, hash) => {
   return bcrypt.compare(password, hash);
 };
 
-const ROUNDS = process.env.SALT_ROUNDS || 5;
+const ROUNDS = Number.parseInt(process.env.SALT_ROUNDS) || 5;
 
 export const hashPassword = (password) => {
   return bcrypt.hash(password, ROUNDS);

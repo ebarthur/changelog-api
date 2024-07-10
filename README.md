@@ -66,7 +66,3 @@ The server has a global error handler that handles different types of errors:
 - `auth`: Returns a 401 status code with a message "unauthorized".
 - `input`: Returns a 400 status code with a message "Invalid input".
 - Other errors: Returns a 500 status code with a message "Oops that's on us".
-
-## Deployment
-
-This project is hosted on [Render](https://changelog-api-x2yq.onrender.com/).
